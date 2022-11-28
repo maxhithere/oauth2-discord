@@ -1,0 +1,20 @@
+{
+    "name": "passport-discord-example",
+    "version": "0.1.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node main.js"
+    },
+    "author": "Nicholas Tay <nexerq@gmail.com> (http://nicholastay.github.io)",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "latest",
+        "express": "^4.13.4",
+        "express-session": "^1.13.0",
+        "mongoose": "^6.7.3",
+        "passport": "^0.3.2",
+        "passport-discord": "^0.1.4"
+    }
+}
