@@ -45,4 +45,4 @@ passport.use(new strategy({
     }
 }));
 
-export default passport;
+module.exports = passport;
