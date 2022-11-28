@@ -29,11 +29,6 @@ app.use(passport.session());
 app.use('/auth', authRoute);
 app.use('/dashboard', dashboardRoute);
 
-//Routes
-// app.get('/', (req, res) => {
-//     res.send('http://localhost:8000/auth');
-// })
-
 
 
 
