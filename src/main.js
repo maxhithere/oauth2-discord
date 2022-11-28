@@ -2,8 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const authRoute = require('./routes/auth');
-const dashboardRoute = require('./routes/dashboard');
 const session = require('express-session');
 const passport = require('./strategies/config');
 const db = require('./db/db_init');
@@ -25,8 +23,18 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/auth', authRoute);
-app.use('/dashboard', dashboardRoute);
+app.get('/', passport.authenticate('discord', { scope: scopes, prompt: prompt }), function(req, res) {});
+app.get('/callback',
+    passport.authenticate('discord', { failureRedirect: '/' }), function(req, res) { res.redirect('/info') } // auth success
+);
+app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
+app.get('/info', checkAuth, function(req, res) {
+    //console.log(req.user)
+    res.json(req.user);
+});
 
 
 
