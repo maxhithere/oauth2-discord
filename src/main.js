@@ -5,8 +5,7 @@ const port = process.env.PORT || 3000;
 const authRoute = require('./routes/auth');
 const dashboardRoute = require('./routes/dashboard');
 const session = require('express-session');
-const passport = require('passport');
-const mainStrategy = require('./strategies/mainStrategy');
+const passport = require('./strategies/config');
 const db = require('./db/db_init');
 
 db.then(() => console.log('Connected to database')).catch(err => console.log(err));

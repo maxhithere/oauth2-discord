@@ -43,4 +43,6 @@ passport.use(new strategy({
         console.log(err);
         done(err, null);
     }
-}))
+}));
+
+export default passport;
