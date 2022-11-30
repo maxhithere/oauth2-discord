@@ -34,7 +34,7 @@ passport.use(new strategy({
               avatar: profile.avatar,
               email: profile.email,
               guilds: profile.guilds
-         });
+         });   //things like guilds and email require scopes, if you dont have those scopes remove the lines or if you have additional scopes add them in the object
             const savedUser = await newUser.save();
          done(null, savedUser);
    }
