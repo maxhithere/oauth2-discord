@@ -1,13 +1,13 @@
 {
-    "name": "passport-discord-example",
+    "name": "oauth2-discord",
     "version": "0.1.0",
     "description": "",
-    "main": "server.js",
+    "main": "main.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node main.js"
     },
-    "author": "Nicholas Tay <nexerq@gmail.com> (http://nicholastay.github.io)",
+    "author": "max",
     "license": "ISC",
     "dependencies": {
         "dotenv": "latest",
