@@ -27,7 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get("/", (req, res) => {
-    res.send('s'); //replace here
+    res.send('home'); //replace here
 })
 
 app.get(
@@ -42,16 +42,18 @@ app.get(
   "/auth/redirect",
   passport.authenticate("discord", { failureRedirect: "/" }),
   function (req, res) {
-    res.redirect("/dashboard");
-  } // auth success
+    res.redirect("/dashboard"); // auth success
+  } 
 );
+
 app.get("/logout", function (req, res) {
   req.logout();
   res.redirect("/");
 });
+
 app.get("/dashboard", checkAuth, function (req, res) {
  
-  res.json(req.user.username);
+  res.json(req.user); //returns all user info regarding selected scopes
 });
 
 function checkAuth(req, res, next) {
