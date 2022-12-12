@@ -5,6 +5,7 @@ const port = process.env.PORT || 3000;
 const session = require("express-session");
 const passport = require("./strategies/config");
 const db = require("./db/db_init");
+const checkAuth = require("./middleware/checkAuth");
 let indexFile;
 
 db.then(() => console.log("Connected to database")).catch((err) =>
@@ -55,11 +56,6 @@ app.get("/dashboard", checkAuth, function (req, res) {
  
   res.json(req.user); //returns all user info regarding selected scopes
 });
-
-function checkAuth(req, res, next) {
-  if (req.isAuthenticated()) return next();
-  res.redirect("/auth");
-}
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
