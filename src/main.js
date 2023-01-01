@@ -6,6 +6,7 @@ const session = require("express-session");
 const passport = require("./strategies/config");
 const db = require("./db/db_init");
 const checkAuth = require("./middleware/checkAuth");
+const catchErr = require("./utils/catchAsyncError")
 let indexFile;
 
 db.then(() => console.log("Connected to database")).catch((err) =>
